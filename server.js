@@ -7,7 +7,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 
-const port = 4000
+const port = process.env.PORT || 4000
 server.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
