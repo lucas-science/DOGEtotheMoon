@@ -7,7 +7,7 @@ sleep = (milliseconds) => {
 }
 const getvalue = async() => {
     try {
-        let result = await fetch("http://localhost:4000/getVal");
+        let result = await fetch("https://dogecoinetothemoon.herokuapp.com/getVal");
         let data = await result.json()
         console.log(data)
         percent.innerHTML = `The pourcentage change of this last 24 hours is : ${data} %`
@@ -34,7 +34,7 @@ doge.addEventListener('click', async() => {
         fleche.style.transform = `rotate(${i}deg)`
     }
     try {
-        let result = await fetch("http://localhost:4000/getVal");
+        let result = await fetch("https://dogecoinetothemoon.herokuapp.com/getVal");
         let data = await result.json()
         console.log(data)
         let convert = data / 100 * (-225)
