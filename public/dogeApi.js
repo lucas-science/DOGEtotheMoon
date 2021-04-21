@@ -1,5 +1,7 @@
 let fleche = document.getElementById('tothemoon');
 let doge = document.getElementById('dogecoin')
+let percent = document.getElementById('percent')
+
 sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
@@ -8,6 +10,7 @@ const getvalue = async() => {
         let result = await fetch("http://localhost:4000/getVal");
         let data = await result.json()
         console.log(data)
+        percent.innerHTML = `The pourcentage change of this last 24 hours is : ${data} %`
         let convert = data / 100 * (-225)
         if (data > 40) {
             console.log("DOGE coin to the moon !")
