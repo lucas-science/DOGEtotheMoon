@@ -32,15 +32,22 @@ const getvalue = async() => {
 
 getvalue()
 
+
 doge.addEventListener('click', async() => {
     fleche.style.transform = `rotate(-70deg)`
+    percent.innerHTML = `
+    <iframe src="https://giphy.com/embed/Ogak8XuKHLs6PYcqlp"  frameBorder="0" class="gif"></iframe>
+    `
     await sleep(1500)
     try {
-        let result = await fetch("https://dogecoinetothemoon.herokuapp.com/getVal");
+        let result = await fetch("http://localhost:4000/getVal");
         let data = await result.json()
         percent.innerHTML = `<p>The pourcentage change of this last 24 hours is : ${data} %</p>`
         let convert = data / 100 * (-225)
         fleche.style.transform = `rotate(${convert}deg)`
+        percent.innerHTML = `
+        <p>The pourcentage change of this last 24 hours is : ${data} %</p>
+        `
     } catch (err) {
         console.log(err)
     }
