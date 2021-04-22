@@ -40,7 +40,7 @@ doge.addEventListener('click', async() => {
     `
     await sleep(1500)
     try {
-        let result = await fetch("http://localhost:4000/getVal");
+        let result = await fetch("https://dogecoinetothemoon.herokuapp.com/getVal");
         let data = await result.json()
         percent.innerHTML = `<p>The pourcentage change of this last 24 hours is : ${data} %</p>`
         let convert = data / 100 * (-225)
