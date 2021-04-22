@@ -7,21 +7,24 @@ sleep = (milliseconds) => {
 }
 const getvalue = async() => {
     try {
-        let result = await fetch("https://dogecoinetothemoon.herokuapp.com/getVal");
+        let result = await fetch("http://localhost:4000/getVal");
         let data = await result.json()
         console.log(data)
-        percent.innerHTML = `The pourcentage change of this last 24 hours is : ${data} %`
+        percent.innerHTML = `<p>The pourcentage change of this last 24 hours is : ${data} %</p>`
         let convert = data / 100 * (-225)
         if (data > 40) {
             console.log("DOGE coin to the moon !")
-            for (let i = 0; i < 1000; i++) {
-                fleche.style.transform = `rotate(${i}deg)`
-            }
+            percent.innerHTML = `
+            <p>The pourcentage change of this last 24 hours is : ${data} %</p>
+            <iframe src="https://giphy.com/embed/Ogak8XuKHLs6PYcqlp"  frameBorder="0" class="gif"></iframe>
+            `
+            fleche.style.transform = `rotate(${convert}deg)`
 
         } else {
             fleche.style.transform = `rotate(${convert}deg)`
         }
         console.log(convert)
+        setTimeout(getvalue, 60000)
     } catch (err) {
         console.log(err)
     }
@@ -30,24 +33,14 @@ const getvalue = async() => {
 getvalue()
 
 doge.addEventListener('click', async() => {
-    for (let i = 0; i < 1000; i++) {
-        fleche.style.transform = `rotate(${i}deg)`
-    }
+    fleche.style.transform = `rotate(-70deg)`
+    await sleep(1500)
     try {
-        let result = await fetch("https://dogecoinetothemoon.herokuapp.com/getVal");
+        let result = await fetch("http://localhost:4000/getVal");
         let data = await result.json()
-        console.log(data)
+        percent.innerHTML = `<p>The pourcentage change of this last 24 hours is : ${data} %</p>`
         let convert = data / 100 * (-225)
-        if (data > 40) {
-            console.log("DOGE coin to the moon !")
-            for (let i = 0; i < 1000; i++) {
-                fleche.style.transform = `rotate(${i}deg)`
-            }
-
-        } else {
-            fleche.style.transform = `rotate(${convert}deg)`
-        }
-        console.log(convert)
+        fleche.style.transform = `rotate(${convert}deg)`
     } catch (err) {
         console.log(err)
     }
