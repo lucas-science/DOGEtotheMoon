@@ -3,6 +3,25 @@ body {
     padding: 0;
     background-image: url('space.png');
     overflow-y: hidden;
+    animation: gradient 120s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 45% 0%;
+    }
+    50% {
+        background-position: 70% 25%;
+    }
+    75% {
+        background-position: 25% 60%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
 }
 
 .page {
