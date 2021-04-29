@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: url('space.png');
+    background-size: 110%;
     overflow-y: hidden;
     animation: gradient 120s ease infinite;
 }
@@ -11,7 +12,7 @@ body {
         background-position: 0% 0%;
     }
     50% {
-        background-position: 45% 0%;
+        background-position: 0% 75%;
     }
     50% {
         background-position: 70% 25%;
